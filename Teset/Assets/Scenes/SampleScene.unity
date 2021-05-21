@@ -277,6 +277,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a92e64f55c3004ab3ddadb5c9267f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 457486191}
+  enemyMaterial: {fileID: 2100000, guid: 3a6cad2a19e09e8468921e56537bb651, type: 2}
   rotation: 0
   rotationSpeed: 2
   bullet: {fileID: -8826663630348640994, guid: 8a01ea665a579a84b9bbc18378fbb494, type: 3}
@@ -385,6 +387,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46e4a28568f18f34ca39729a9b15d87d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 505437815}
+  enemyMaterial: {fileID: 2100000, guid: ea825239879a6044d85b7a59b0df1ea4, type: 2}
   bullet: {fileID: -8826663630348640994, guid: 8a01ea665a579a84b9bbc18378fbb494, type: 3}
 --- !u!136 &505437817
 CapsuleCollider:
@@ -936,8 +940,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1144068277}
-  camera: {fileID: 1156200719}
   playerMaterial: {fileID: 2100000, guid: 0e26a5a707fe6ea4fbda8cc3628f4e3f, type: 2}
+  bullet: {fileID: -8826663630348640994, guid: 8a01ea665a579a84b9bbc18378fbb494, type: 3}
 --- !u!54 &1144068283
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1086,6 +1090,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca01c58fbf56b454e986af005cfeef2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 1321091166}
+  enemyMaterial: {fileID: 2100000, guid: c8ab5aeac21aa134ea941fd2cbd87e60, type: 2}
   bullet: {fileID: -8826663630348640994, guid: 8a01ea665a579a84b9bbc18378fbb494, type: 3}
 --- !u!136 &1321091168
 CapsuleCollider:
@@ -1608,6 +1614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0a92e64f55c3004ab3ddadb5c9267f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 1887571851}
+  enemyMaterial: {fileID: 2100000, guid: a470812a18a62dd45882c56e5c5b98e1, type: 2}
   rotation: 0
   rotationSpeed: 2
   bullet: {fileID: -8826663630348640994, guid: 8a01ea665a579a84b9bbc18378fbb494, type: 3}
