@@ -16,17 +16,21 @@ public class Player : MonoBehaviour
     Rigidbody rb;
     float currentHealth;
     float maxHealth;
+    float shotTime;
+    int damageMultiplier;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
         playerSpeed = 5.0f;
-        jumpForce = 2.0f;
+        jumpForce = 3.0f;
         jumpVector = new Vector3(0.0f, 1.0f, 0.0f);
         isGrounded = true;
         maxHealth = 100.0f;
         currentHealth = 100.0f;
         playerMaterial.color = new Color(0.1f,0.3f,0.1f);
+        shotTime = 0.0f;
+        damageMultiplier = 20;
     }
 
     void Update()
@@ -48,8 +52,12 @@ public class Player : MonoBehaviour
                 rb.AddForce(jumpVector * jumpForce, ForceMode.Impulse);
                 isGrounded = false;
             }
-            if(Input.GetMouseButtonDown(0)) {
+            if(Input.GetMouseButton(0)) {
+                shotTime += Time.deltaTime;
+            }
+            if(Input.GetMouseButtonUp(0)) {
                 shoot();
+                shotTime = 0.0f;
             }
         }
     }
@@ -57,7 +65,7 @@ public class Player : MonoBehaviour
     void OnCollisionEnter(Collision collision) {
         if(collision.gameObject.name.Contains("Bullet")){
             Destroy(collision.gameObject);
-            receiveDamage(collision.gameObject.GetComponent<Bullet>().dealDamage());
+            receiveDamage(collision.gameObject.GetComponent<Bullet>().damage);
         }
     }
     void OnCollisionStay(Collision collision) {
@@ -73,14 +81,17 @@ public class Player : MonoBehaviour
     }
 
     void shoot() {
+        float distance = shotTime>1? shotTime:1;
+        Vector3 bulletSize = new Vector3(1,1,1);
         Rigidbody bulletClone;
-        bulletClone = Instantiate(bullet, transform.position + transform.forward, transform.rotation);
+        bulletClone = Instantiate(bullet, transform.position + distance*transform.forward, transform.rotation);
+        bulletClone.GetComponent<Transform>().localScale = shotTime*bulletSize;
+        bulletClone.GetComponent<Bullet>().damage = damageMultiplier*shotTime;
         bulletClone.velocity = transform.TransformDirection(Vector3.forward * 10);
     }
 
     void receiveDamage(float damageReceived) {
         currentHealth -= damageReceived;
-        print("currentHealth: " + currentHealth);
         float newColorValue = playerMaterial.color.b+0.2f*(damageReceived/maxHealth);
         playerMaterial.color = new Color(newColorValue,0.3f,newColorValue);
         if(currentHealth <= 0) {
