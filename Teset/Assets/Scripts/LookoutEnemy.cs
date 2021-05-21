@@ -7,11 +7,11 @@ public class LookoutEnemy : MonoBehaviour, IEnemy
 
     public GameObject enemy;
     public Material enemyMaterial;
+    public Rigidbody bullet;
     public float currentHealth {get; set;}
     public float maxHealth {get;} = 100.0f;
     public float rotation = 0.0f;
     public float rotationSpeed = 2.0f;
-    public Rigidbody bullet;
     int layerMask = 1 << 8;
 
     void Start() {
