@@ -280,8 +280,7 @@ MonoBehaviour:
   enemy: {fileID: 457486191}
   enemyMaterial: {fileID: 2100000, guid: 3a6cad2a19e09e8468921e56537bb651, type: 2}
   bullet: {fileID: -8826663630348640994, guid: 8a01ea665a579a84b9bbc18378fbb494, type: 3}
-  rotation: 0
-  rotationSpeed: 2
+  maxHealth: 100
 --- !u!136 &457486193
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -390,6 +389,7 @@ MonoBehaviour:
   enemy: {fileID: 505437815}
   enemyMaterial: {fileID: 2100000, guid: ea825239879a6044d85b7a59b0df1ea4, type: 2}
   bullet: {fileID: -8826663630348640994, guid: 8a01ea665a579a84b9bbc18378fbb494, type: 3}
+  maxHealth: 100
 --- !u!136 &505437817
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1003,7 +1003,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1156200715}
   m_LocalRotation: {x: 0.23536, y: -0, z: -0, w: 0.9719083}
-  m_LocalPosition: {x: 0, y: 5.14, z: -10}
+  m_LocalPosition: {x: 0, y: 5, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1157324830}
@@ -1022,9 +1022,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 742457108}
-  offset: {x: 0, y: 5, z: -10}
-  speedH: 2
-  speedV: 2
 --- !u!1 &1157324829
 GameObject:
   m_ObjectHideFlags: 0
@@ -1090,6 +1087,7 @@ MonoBehaviour:
   player: {fileID: 742457104}
   playerMaterial: {fileID: 2100000, guid: 0e26a5a707fe6ea4fbda8cc3628f4e3f, type: 2}
   bullet: {fileID: -8826663630348640994, guid: 8a01ea665a579a84b9bbc18378fbb494, type: 3}
+  maxHealth: 100
 --- !u!1 &1321091166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,6 +1123,7 @@ MonoBehaviour:
   enemy: {fileID: 1321091166}
   enemyMaterial: {fileID: 2100000, guid: c8ab5aeac21aa134ea941fd2cbd87e60, type: 2}
   bullet: {fileID: -8826663630348640994, guid: 8a01ea665a579a84b9bbc18378fbb494, type: 3}
+  maxHealth: 100
 --- !u!136 &1321091168
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1649,8 +1648,7 @@ MonoBehaviour:
   enemy: {fileID: 1887571851}
   enemyMaterial: {fileID: 2100000, guid: a470812a18a62dd45882c56e5c5b98e1, type: 2}
   bullet: {fileID: -8826663630348640994, guid: 8a01ea665a579a84b9bbc18378fbb494, type: 3}
-  rotation: 0
-  rotationSpeed: 2
+  maxHealth: 100
 --- !u!136 &1887571853
 CapsuleCollider:
   m_ObjectHideFlags: 0

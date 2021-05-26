@@ -1,5 +1,5 @@
+// Enemy interface.
 public interface IEnemy {
-    float currentHealth {get; set;}
-    float maxHealth {get;}
+    // Determines what happens when enemy receives damage.
     void receiveDamage(float damageReceived);
 }

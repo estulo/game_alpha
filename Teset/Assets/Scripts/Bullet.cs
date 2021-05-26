@@ -1,23 +1,25 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿// IMPORTS
 using UnityEngine;
 
+// CLASSES
+// Bullet script with damage getter, setter, and destroy function.
 public class Bullet : MonoBehaviour, IProjectile
 {
+    // METHOD
+    // Method for setting and getting hidden damage attribute.
     public float damage {get; set;}
     
-    // Start is called before the first frame update
-
+    // Start function. Sets the bullet duration to two seconds.
     void Start()
     {
-        // Kills the game object in 5 seconds after loading the object
+        // Destroys the game object 2 seconds after loading the object
         Destroy(gameObject, 2);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+    // OnCollisionEnter method. Destroys the game object as soon as it collides with any other collider.
+    void OnCollisionEnter(Collision collision) {
+        if(collision.gameObject.tag != "Terrain") {
+            Destroy(gameObject);
+        }
     }
 
 }
