@@ -1,8 +1,8 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [RequireComponent(typeof(Rigidbody))]
-public class Player : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public GameObject player;
     public Material playerMaterial;
@@ -84,10 +84,10 @@ public class Player : MonoBehaviour
         float distance = shotTime>1? shotTime:1;
         Vector3 bulletSize = new Vector3(1,1,1);
         Rigidbody bulletClone;
-        bulletClone = Instantiate(bullet, transform.position + distance*transform.forward, transform.rotation);
+        bulletClone = Instantiate(bullet, player.transform.position + distance*player.transform.forward, player.transform.rotation);
         bulletClone.GetComponent<Transform>().localScale = shotTime*bulletSize;
         bulletClone.GetComponent<Bullet>().damage = damageMultiplier*shotTime;
-        bulletClone.velocity = transform.TransformDirection(Vector3.forward * 10);
+        bulletClone.velocity = player.transform.TransformDirection(Vector3.forward * 10);
     }
 
     void receiveDamage(float damageReceived) {

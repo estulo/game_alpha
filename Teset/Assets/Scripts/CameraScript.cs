@@ -36,6 +36,6 @@ public class CameraScript : MonoBehaviour
         if(player!=null) {
             player.eulerAngles = new Vector3(0.0f, yaw, 0.0f);
             transform.position = player.position + offset;
-        }
+        }        
     }
 }
