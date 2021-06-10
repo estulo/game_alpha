@@ -21,7 +21,7 @@ public class LookoutEnemy : MonoBehaviour, IEnemy
     // Reference for enemy's rotation speed(angles per frame).
     float rotationSpeed = 2.0f;
     // Reference for the layer in which the enemy looks for the player.
-    int layerMask = 1 << 8;
+    int layerMask = 1 << 10;
     // Reference for color value to change.
     float colorValue;
 
@@ -30,7 +30,6 @@ public class LookoutEnemy : MonoBehaviour, IEnemy
     void Start() {
         currentHealth = 100.0f;
         enemyMaterial.color = new Color(0.5f,0.1f,0.1f);
-
     }
     /**
     * Update method. Rotation is updated according to the rotation speed.

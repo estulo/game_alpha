@@ -7,7 +7,7 @@ public class CameraScript : MonoBehaviour
 {
     // ATTRIBUTES
     // Reference to the player associated to the camera.
-    public Transform player;
+    public Transform playerController;
     // Reference to the camera offset from the player's position.
     Vector3 offset;
     // Reference to the horizontal speed of the camera movement.
@@ -45,12 +45,12 @@ public class CameraScript : MonoBehaviour
             offset.z = -10*Mathf.Cos(horizontalDegree*Mathf.PI/180)*Mathf.Cos(verticalDegree*Mathf.PI/180);
         }
         // Update camera rotation.
-        transform.eulerAngles = new Vector3(verticalDegree, horizontalDegree, 0.0f);
+        transform.eulerAngles = new Vector3(verticalDegree, transform.eulerAngles.y, 0.0f);
         // Check if player exists.
-        if(player!=null) {
+        if(playerController!=null) {
             // Update player rotation and camera position.
-            player.eulerAngles = new Vector3(0.0f, horizontalDegree, 0.0f);
-            transform.position = player.position + offset;
+            playerController.eulerAngles = new Vector3(0.0f, horizontalDegree, 0.0f);
+            transform.position = playerController.position + offset;
         }        
     }
 }

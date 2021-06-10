@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour, IProjectile
     }
     // OnCollisionEnter method. Destroys the game object as soon as it collides with any other collider.
     void OnCollisionEnter(Collision collision) {
-        if(collision.gameObject.tag != "Terrain") {
+        if(collision.gameObject.tag != "Bullet") {
             Destroy(gameObject);
         }
     }
