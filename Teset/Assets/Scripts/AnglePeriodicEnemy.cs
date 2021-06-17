@@ -19,7 +19,7 @@ public class AnglePeriodicEnemy : MonoBehaviour, IEnemy
     // Reference for enemy's rotation angle.
     float rotation = 0.0f;
     // Reference for enemy's rotation speed(angles per frame).
-    float rotationSpeed = 2.0f;
+    float rotationSpeed = 1.0f;
     // Reference for enemy's angle since last shot.
     float shotAngle = 0.0f;
     // Reference for enemy's shot frequency(shots per rotation). 
@@ -68,9 +68,12 @@ public class AnglePeriodicEnemy : MonoBehaviour, IEnemy
         enemyMaterial.color = new Color(colorValue, colorValue, 0.5f);
         // Checks if current health has reached 0 and destroys the game object.
         if(currentHealth <= 0) {
+            explode();
             Destroy(enemy);
             // Sets reference to enemy instance to null.
             enemy = null;
+            print(transform.forward);
+
         }
     }
     // Creates a new bullet and shoots straight ahead.
@@ -81,5 +84,34 @@ public class AnglePeriodicEnemy : MonoBehaviour, IEnemy
         bulletClone.GetComponent<Bullet>().damage = 10;
         // Direction is given to the bullet's rigidbody.
         bulletClone.velocity = transform.TransformDirection(Vector3.forward * 10);
+    }
+    // Creates and shoots bullets in all drections separated by 45 degrees.    
+    void explode() {
+        Rigidbody bulletClone;
+        bulletClone = Instantiate(bullet, transform.position + transform.forward, transform.rotation);
+        bulletClone.GetComponent<Bullet>().damage = 10;
+        bulletClone.velocity = transform.TransformDirection(Vector3.forward * 10);
+        bulletClone = Instantiate(bullet, transform.position - transform.forward, transform.rotation);
+        bulletClone.GetComponent<Bullet>().damage = 10;
+        bulletClone.velocity = transform.TransformDirection(-Vector3.forward * 10);
+        bulletClone = Instantiate(bullet, transform.position + transform.right, transform.rotation);
+        bulletClone.GetComponent<Bullet>().damage = 10;
+        bulletClone.velocity = transform.TransformDirection(Vector3.right * 10);
+        bulletClone = Instantiate(bullet, transform.position - transform.right, transform.rotation);
+        bulletClone.GetComponent<Bullet>().damage = 10;
+        bulletClone.velocity = transform.TransformDirection(-Vector3.right * 10);
+
+        bulletClone = Instantiate(bullet, transform.position + Quaternion.Euler(0, -45, 0) * transform.forward, transform.rotation);
+        bulletClone.GetComponent<Bullet>().damage = 10;
+        bulletClone.velocity = transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.forward * 10);
+        bulletClone = Instantiate(bullet, transform.position - Quaternion.Euler(0, -45, 0) * transform.forward, transform.rotation);
+        bulletClone.GetComponent<Bullet>().damage = 10;
+        bulletClone.velocity = transform.TransformDirection(Quaternion.Euler(0, -45, 0) * -Vector3.forward * 10);
+        bulletClone = Instantiate(bullet, transform.position + Quaternion.Euler(0, -45, 0) * transform.right, transform.rotation);
+        bulletClone.GetComponent<Bullet>().damage = 10;
+        bulletClone.velocity = transform.TransformDirection(Quaternion.Euler(0, -45, 0) * Vector3.right * 10);
+        bulletClone = Instantiate(bullet, transform.position - Quaternion.Euler(0, -45, 0) * transform.right, transform.rotation);
+        bulletClone.GetComponent<Bullet>().damage = 10;
+        bulletClone.velocity = transform.TransformDirection(Quaternion.Euler(0, -45, 0) * -Vector3.right * 10);
     }
 }
