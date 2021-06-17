@@ -28,4 +28,8 @@ public class PlayerModel : MonoBehaviour
     public void selfDestruct() {
         Destroy(gameObject);
     }
+
+    public void OnAnimationEnd() {
+        Destroy(gameObject);
+    }
 }

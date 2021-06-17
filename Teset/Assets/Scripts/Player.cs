@@ -116,9 +116,9 @@ public class Player : MonoBehaviour
         // Checks if current health has reached 0.
         if(currentHealth <= 0) {
             // Call for player object to destroy its gameObject.
-            //player.selfDestruct();
+            //playerModel.selfDestruct();
             // Sets reference to player instance to null.
-            //player = null;
+            //playerModel = null;
             //Destroy(playerRigidBody);
         }
     }
