@@ -1,5 +1,6 @@
 // IMPORTS
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 // CLASSES
 // Player controller script in which the game object responds to the player's input.
@@ -127,6 +128,10 @@ public class Player : MonoBehaviour
         // If the collision is a bullet, the game object receives damage.
         if(collision.gameObject.name.Contains("Bullet")){
             receiveDamage(collision.gameObject.GetComponent<Bullet>().damage);
+        }
+        if(collision.gameObject.name.Contains("Door")) {
+            SceneManager.LoadScene("HouseScene");
+            
         }
     }
     // OnCollisionStay method. Detects persistent collisions and generates a response in the game object.
