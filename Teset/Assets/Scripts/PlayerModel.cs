@@ -25,6 +25,7 @@ public class PlayerModel : MonoBehaviour
     public void receiveDamage(float currentHealth) {
         animator.SetFloat("Health", currentHealth);
     }
+    // Destroys game object.
     public void selfDestruct() {
         Destroy(gameObject);
     }
@@ -32,4 +33,5 @@ public class PlayerModel : MonoBehaviour
     public void OnAnimationEnd() {
         Destroy(gameObject);
     }
+
 }

@@ -33,6 +33,8 @@ public class Player : MonoBehaviour
     int damageMultiplier;
     // Reference for the minimum distance required to shoot a projectile correctly.
     float minDistance;
+    //Reference to player's interaction area.
+    public GameObject interactionArea;
 
 
 // METHODS
@@ -99,6 +101,7 @@ public class Player : MonoBehaviour
         minDistance = shotTime>1? shotTime:1;
         Rigidbody bulletClone;
         bulletClone = Instantiate(bullet, playerModel.transform.position + minDistance*playerModel.transform.forward, playerModel.transform.rotation);
+        Physics.IgnoreCollision(bulletClone.GetComponent<Collider>(), playerRigidBody.GetComponent<Collider>());
         // Size of the bullet is changed depending on shotTime.
         bulletClone.GetComponent<Transform>().localScale = shotTime*new Vector3(1,1,1);
         // Damage is set for the bullet component asociated to the rigidbody depending on shotTime.

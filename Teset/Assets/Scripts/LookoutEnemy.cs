@@ -24,6 +24,8 @@ public class LookoutEnemy : MonoBehaviour, IEnemy
     int layerMask = 1 << 10;
     // Reference for color value to change.
     float colorValue;
+    // Reference for enemy's attack status.
+    public bool attack;
 
     // METHODS
     // Start method. Sets current health to the max health and sets material color to its defauld value.
@@ -39,7 +41,8 @@ public class LookoutEnemy : MonoBehaviour, IEnemy
     {
         // Check if bullet needs to be shot depending on whether or not the player is in front of the game object.
         if(Physics.Raycast(enemy.transform.position, enemy.transform.forward, Mathf.Infinity, layerMask)) {
-            shoot();
+            // Shoot if attack mode is engaged.
+            if(attack) shoot();
         }
         // Rotation is kept under 360 degrees.
         rotation = (rotation + rotationSpeed)%360;

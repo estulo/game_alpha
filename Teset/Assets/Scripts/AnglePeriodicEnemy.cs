@@ -26,6 +26,8 @@ public class AnglePeriodicEnemy : MonoBehaviour, IEnemy
     float shotFrequency = 8.0f;
     // Reference for color value to change.
     float colorValue;
+    // Reference for enemy's attack status.
+    public bool attack;
 
     // METHODS
     // Start method. Sets current health to the max health and sets material color to its defauld value.
@@ -41,7 +43,8 @@ public class AnglePeriodicEnemy : MonoBehaviour, IEnemy
     {
         // Check if bullet needs to be shot depending on shotAngle and shotFrequency.
         if(shotAngle>360/shotFrequency) {
-            shoot();
+            // Shoot if attack mode is engaged.
+            if(attack) shoot();
             // Shot angle is kept under the angle determined by shotFrequency.
             shotAngle = shotAngle%(360/shotFrequency);
         }

@@ -27,6 +27,8 @@ public class TimePeriodicEnemy : MonoBehaviour, IEnemy
     float shotFrequency = 0.5f;
     // Reference for color value to change.
     float colorValue;
+    // Reference for enemy's attack status.
+    public bool attack;
 
     // METHODS
     // Start method. Sets current health to the max health and sets material color to its defauld value.
@@ -46,7 +48,8 @@ public class TimePeriodicEnemy : MonoBehaviour, IEnemy
         if(timer>shotFrequency) {
             // Timer is kept under time determined by shotFrequency.
             timer -= shotFrequency;
-            shoot();
+            // Shoot if attack mode is engaged.
+            if(attack) shoot();
         }
         // Rotation is kept under 360 degrees.
         rotation = (rotation + rotationSpeed)%360;

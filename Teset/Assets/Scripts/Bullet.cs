@@ -7,10 +7,6 @@ public class Bullet : MonoBehaviour, IProjectile
 {
     // METHOD
     // Method for setting and getting hidden damage attribute.
-    
-    //Mango es gay bullet mi perro
-
-    //Mango es regay bullet
     public float damage {get; set;}
     
     // Start function. Sets the bullet duration to two seconds.
