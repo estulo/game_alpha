@@ -289,7 +289,7 @@ MonoBehaviour:
   enemyMaterial: {fileID: 2100000, guid: 3a6cad2a19e09e8468921e56537bb651, type: 2}
   bullet: {fileID: -8826663630348640994, guid: 8a01ea665a579a84b9bbc18378fbb494, type: 3}
   maxHealth: 100
-  attack: 0
+  attack: 1
 --- !u!136 &457486193
 CapsuleCollider:
   m_ObjectHideFlags: 0
